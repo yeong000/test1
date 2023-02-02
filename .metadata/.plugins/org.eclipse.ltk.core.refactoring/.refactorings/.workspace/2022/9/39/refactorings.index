@@ -1,0 +1,13 @@
+1663549197851	Rename resource 'uart'
+1663549367319	Delete resource 'uart_tx'
+1663552511375	Delete 3 resources
+1663630967311	Delete 2 resources
+1663637564193	Rename resource 'uart_serial'
+1663637590046	Rename resource 'uart_polling_tx'
+1663637609981	Rename resource 'uart_serial_rx'
+1663650557859	Rename resource 'Uart_PollingRX'
+1663650572463	Rename resource 'Uart_PollingTX'
+1663782170317	Delete resource 'uart_rx'
+1663782283734	Delete resource 'uart_rx'
+1663782393345	Delete resource 'uart'
+1663787592313	Delete resource 'uart_rx/uart_rx Debug.launch'

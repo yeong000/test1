@@ -1,0 +1,60 @@
+02:22:18 **** Incremental Build of configuration Debug for project uart_serial ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:102:44: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  102 |    HAL_UART_Transmit(&huart3, &str, strlen(str),0.1);
+      |                                            ^~~
+      |                                            |
+      |                                            unsigned char *
+In file included from ../Core/Src/main.c:21:
+d:\stm_cubemx\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'unsigned char *'
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:102:31: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  102 |    HAL_UART_Transmit(&huart3, &str, strlen(str),0.1);
+      |                               ^~~~
+      |                               |
+      |                               unsigned char (*)[8]
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'unsigned char (*)[8]'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/main.c:103:44: warning: pointer targets in passing argument 1 of 'strlen' differ in signedness [-Wpointer-sign]
+  103 |    HAL_UART_Transmit(&huart2, &str, strlen(str),100);
+      |                                            ^~~
+      |                                            |
+      |                                            unsigned char *
+In file included from ../Core/Src/main.c:21:
+d:\stm_cubemx\stm32cubeide_1.10.1\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.win32_1.0.0.202111181127\tools\arm-none-eabi\include\string.h:41:17: note: expected 'const char *' but argument is of type 'unsigned char *'
+   41 | size_t  strlen (const char *);
+      |                 ^~~~~~~~~~~~
+../Core/Src/main.c:103:31: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  103 |    HAL_UART_Transmit(&huart2, &str, strlen(str),100);
+      |                               ^~~~
+      |                               |
+      |                               unsigned char (*)[8]
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:338,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'unsigned char (*)[8]'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "uart_serial.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\stm_cubemx\workspace_1.10.1\uart_serial\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="uart_serial.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: uart_serial.elf
+ 
+arm-none-eabi-size   uart_serial.elf 
+arm-none-eabi-objdump -h -S  uart_serial.elf  > "uart_serial.list"
+   text	   data	    bss	    dec	    hex	filename
+   8340	     20	   1708	  10068	   2754	uart_serial.elf
+Finished building: default.size.stdout
+ 
+Finished building: uart_serial.list
+ 
+
+02:22:19 Build Finished. 0 errors, 4 warnings. (took 1s.38ms)
+
